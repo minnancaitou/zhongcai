@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>image</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<h1>tu</h1>
+	<ul>
+		<li>
+			<a href="F:\素材图\000000000105279466_1_400x400.jpg" onclick="huantu(this); return false;" title="yi zhi mao">mao</a>
+		</li>
+		<li>
+			<a href="F:\素材图\267821-1506220S50866.jpg" onclick="huantu(this); return false;" title="yi ge zhong">zhong</a>
+		</li>
+		<li>
+			<a href="F:\素材图\u=4136464215,1828396135&fm=21&gp=0.jpg" onclick="huantu(this); return false;" title="yi tai dian shi">dianshi</a>
+		</li>
+		<li>
+			<a href="F:\素材图\timg.jpg" onclick="huantu(this); return false;" title="yi ke luo bo">luobo</a>
+		</li>
+
+	</ul>
+	<img src="F:\素材图\318742-1406220I45283.jpg" id="placeholder" alt="zhanwei">
+	<script>
+		function huantu(dizhi) {
+			var tihuan = dizhi.getAttribute("href");
+			var zhanwei = document.getElementById("placeholder");
+			zhanwei.setAttribute("src",tihuan);
+		}
+	</script>
+</body>
+</html>
