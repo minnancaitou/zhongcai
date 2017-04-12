@@ -3,6 +3,36 @@
 <head>
 	<title>image</title>
 	<meta charset="utf-8">
+	<style>	
+		body{
+			font-family:"Helvetica","Arial",serif;
+			color:#333;
+			background-color:#ccc;
+			margin:1em 10%;
+		}
+		h1{
+			color:#333;
+			background-color: transparent;
+		}
+		a{
+			color: #c60;
+			background-color: transparent;
+			font-weight: bold;
+			text-decoration: none;
+		}
+		ul{
+			padding:0;
+		}
+		li{
+			float: left;
+			padding: 1em;
+			list-style: none;
+		}
+		img{
+			display: block;
+			clear: both;
+		}
+	</style>
 </head>
 <body>
 	<h1>tu</h1>
@@ -22,12 +52,22 @@
 
 	</ul>
 	<img src="F:\素材图\318742-1406220I45283.jpg" id="placeholder" alt="zhanwei">
+	<p id="description">choose an image</p>
 	<script>
 		function huantu(dizhi) {
 			var tihuan = dizhi.getAttribute("href");
 			var zhanwei = document.getElementById("placeholder");
+			var text = dizhi.getAttribute("title");
+			var description = document.getElementById("description");
+			description.firstChild.nodeValue = text;
 			zhanwei.setAttribute("src",tihuan);
-		}
-	</script>
-</body>
-</html>
+		};
+		function countBodyChildren() {
+			var bodyElement = document.getElementsByTagName("body")[0];
+				//alert (bodyElement.childNodes.length);
+				//alert (bodyElement.nodeType);
+			};
+			window.onload = countBodyChildren;
+		</script>
+	</body>
+	</html>
