@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<div id='qq'></div>
+<script type="text/javascript">
+	var aa = "china";
+	var bb = 0;
+	var dd;
+	function xianshi() {
+		var cc = document.getElementById("qq");	
+		if(bb <= aa.length) {	
+			cc.innerHTML = aa.substring(0, bb++);
+			// console.log(aa.substring(0, bb++))
+		dd = setTimeout("xianshi()", 1000);
+		} else if(bb > aa.length) {
+			clearTimeout(dd);
+			bb = 0;
+		dd = setTimeout("xianshi()", 2000);
+		}
+	}
+		xianshi();
+
+
+	
+</script>
+</body>
+</html>

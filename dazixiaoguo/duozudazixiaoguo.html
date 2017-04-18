@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<div id = "dazi"></div>
+
+	<script > 
+ 	var NewsTime = 2000;       //每条信息完整出现后停留时间
+    var TextTime =100;       //每条信息中的字出现的间隔时间 
+    var newsi = 0;
+    var txti = 0;
+    var txttimer;     //调用setInterval的返回值，用于取消对函数的周期性执行
+    var jiange;   
+    var newstitle = ["床前明月光", "疑是地上霜", "举头望明月", "低头思故乡"]       //以数组形式保存每个信息的标题                
+    function shownew(){
+        xianshi=newstitle[newsi];       //通过newsi传递，依次显示数组中的内容
+        if(txti>=xianshi.length){
+            clearInterval(txttimer);   //一旦超过要显示的文字长度，清除对shownew()的周期性调用
+            clearInterval(jiange);  
+            newsi++;     //显示数组中的下一个          
+            if(newsi>=newstitle.length){
+                newsi = 0;   //当newsi大于信息标题的数量时，把newsi清零，重新从第一个显示
+            }
+            jiange = setInterval("shownew()",NewsTime);     //间隔2000ms后重新调用shownew()
+            txti = 0;    
+            return;
+        }
+        clearInterval(txttimer);           
+        document.getElementById("dazi").innerHTML = xianshi.substring(0,txti+1);     //截取字符，从第一个字符到txti+1个字符       
+        txti++;   //文字一个个出现
+        txttimer = setInterval("shownew()",TextTime);      
+    }
+    shownew();
+</script>
+</body>
+</html>
