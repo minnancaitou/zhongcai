@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+</head>
+<body>
+<div id='qq'></div>
+<script type="text/javascript">
+	var aa = ["china", "牛逼是用来吹的", "小鸡炖蘑菇", "天王盖地虎", "泰坦尼克号"]
+	var bb = 0;
+	var i = 0;
+	var dd;
+	var ee;
+	function xianshi() {
+		cc = aa[i];
+		if(bb > cc.length) {	
+			clearInterval(dd);
+			clearInterval(ee);
+			i++;
+			if(i >= aa.length) {
+				i = 0;
+			}
+			ee = setInterval("xianshi()", 1000);
+			bb = 0;
+			return;			
+		}
+		clearInterval(dd);           
+        document.getElementById("qq").innerHTML = cc.substring(0,bb++);   
+        // bb++;   
+        dd = setInterval("xianshi()",100); 
+	}
+		xianshi();
+
+
+	
+</script>
+</body>
+</html>
