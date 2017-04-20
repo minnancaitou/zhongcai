@@ -1,13 +1,13 @@
-function moveElement( elementID, final_x, final_y, interval) {
+function moveElementA( elementID, final_x, final_y, interval) {
 	if ( !document.getElementById) return false;
 	if ( !document.getElementById(elementID)) return false;
 	var elem = document.getElementById(elementID);
 	var xpos = parseInt( elem.style.left);  //字符串转换为整数
 	var ypos = parseInt( elem.style.top);
 	if ( xpos == final_x && ypos == final_y) {
-		moveElementA("message", 50, 100, 10);
+		moveElement("message", 200, 100, 10);
 		return;
-		
+		// moveElement("message", 50, 100, 10);
 	}
 	if (xpos < final_x) {
 		xpos++;

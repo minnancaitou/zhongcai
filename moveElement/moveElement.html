@@ -7,15 +7,19 @@
 <body>
 <p id="message">where</p>
 <script src="moveElement.js"></script>
+<script src="moveElementA.js"></script>
 <script type="text/javascript">
+var time;
 	function positionMessage() {
 		if (!document.getElementById) return false;
 		if (!document.getElementById("message")) return false;
 		var elem = document.getElementById("message");
 		elem.style.position = "absolute";
-		elem.style.left = "50px";
-		elem.style.top = "100px";
-		moveElement("message", 200, 100, 10);
+
+		if(elem.style.left = "50px",
+		elem.style.top = "100px") {
+			moveElement("message", 200, 100, 10);	
+		}			
 	}
 	positionMessage();
 </script>
