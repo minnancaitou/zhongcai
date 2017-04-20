@@ -5,7 +5,7 @@ function moveElement( elementID, final_x, final_y, interval) {
 	var xpos = parseInt( elem.style.left);  //字符串转换为整数
 	var ypos = parseInt( elem.style.top);
 	if ( xpos == final_x && ypos == final_y) {
-		return ture;
+		return true;
 	}
 	if (xpos < final_x) {
 		xpos++;
