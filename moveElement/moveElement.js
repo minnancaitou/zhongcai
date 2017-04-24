@@ -5,6 +5,7 @@ function moveElement( elementID, final_x, final_y, interval) {
 	var xpos = parseInt( elem.style.left);  //字符串转换为整数
 	var ypos = parseInt( elem.style.top);
 	if ( xpos == final_x && ypos == final_y) {
+		clearTimeout(movement);
 		moveElementA("message", 50, 100, 10);
 		return;
 		
