@@ -1,3 +1,32 @@
+function addLoadEvent() {
+	var oldonload = window.onload;
+	if (typeof window.onload != 'function') {
+		window.onload =func;
+	} else {
+		window.onload = function() {
+			oldonload();
+			func();
+		}
+	}
+}
+function insertAfter(newElement, targetElemenet) {
+	var parent = targetElemenet.parentNode;
+	if (parent.lastChild == targetElemenet) {
+		parent.appendChild(newElement);
+	} else {
+		parent.insertBefore(newElement, targetElemenet.nextSibling);
+	}
+}
+function addClass(element, value) {
+	if (!element.className) {
+		element.className = value;
+	} else {
+		newClassName = element.className;
+		newClassName += "";
+		newClassName += value;
+		element.className = newClassName;
+	}
+}
 function highlightPage() {
 	if (!document.getElementsByTagName) return false;
 	if (!document.getElementById) return false;
@@ -16,4 +45,4 @@ function highlightPage() {
 	}
 	}
 }
-highlightPage();
+addLoadEvent(highlightPage);
