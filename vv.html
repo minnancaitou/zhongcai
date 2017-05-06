@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="aa">
+		<span>asdf: {{msg}}</span>
+		<span v-once> sb: {{msg}} </span>
+		<span v-html="asaf"></span>
+		<input v-model="msg">
+	</div>
+	
+	<script >
+		var vm = new Vue({
+			el: '#aa',
+			data: {
+				msg:'sss',
+				a: 1,
+				asaf: "<p>a</p><p>asdasf</p>",
+			},
+			created: function () {
+    // `this` 指向 vm 实例
+    console.log(3)
+},
+beforeCreate: function () {
+	console.log(1)
+},
+beforeMount: function () {
+	console.log(2)
+},
+mounted: function () {
+	console.log(4)
+}
+})
+		
+</script>
+</body>
+</html>

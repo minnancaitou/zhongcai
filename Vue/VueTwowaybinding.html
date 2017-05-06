@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+	<title></title>
+</head>
+<body>
+	<div id="aa">
+		<p>{{ asd }}</p>
+		<input v-model="asd">
+	</div>
+	<script>
+		var ab = new Vue({
+			el: '#aa',
+			data: {
+				asd: '填写内容'
+			}
+		})
+	</script>
+	
+</body>
+</html>

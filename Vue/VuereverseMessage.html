@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+	<title></title>
+</head>
+<body>
+	<div id="aa">
+		<p>{{ asd }}</p>
+		<input v-model="asd">
+		<button v-on:click="reverse">逆转消息</button>
+	</div>
+	<script>
+		var aaaaa = new Vue({
+			el: '#aa',
+			data: {
+				asd: '去中国!'
+			},
+			methods: {
+				reverse: function () {
+					this.asd = this.asd.split('').reverse().join('')
+				}
+			}
+		})
+	</script>
+</body>
+</html>

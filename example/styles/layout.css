@@ -7,14 +7,14 @@ section, header, article, nav {
 }
 body {
 	margin: 1em auto;
-	background-image: url(E:\我的创作\zhongcai\example\images\318742-1406220I45283.jpg);
+	background-image: url( ../images/3-140P6153133.jpg);
 	background-attachment: fixed;
 	background-position: top left;
 	background-repeat: repeat-x;
 	max-width: 82.5em;
 }
 header {
-	background-image: url(E:\我的创作\zhongcai\example\images\3-140P6153133.jpg);
+	background-image: url( ../images/318742-1406220I45283.jpg);
 	background-repeat: no-repeat;
 	background-position: bottom right;
 	border-width: 0.1em;
@@ -22,7 +22,7 @@ header {
 	border-bottom-width: 0;	
 }
 header nav {
-	background-image: url(E:\我的创作\zhongcai\example\images\34u58PICcWj_1024.jpg);
+	background-image: url( ../images/34u58PICcWj_1024.jpg);
 	background-position: bottom left;
 	background-repeat: repeat-x;
 	border-width: 0.1em;
@@ -58,4 +58,27 @@ article img {
 	border-style: solid;
 	outline-width: 0.1em;
 	outline-style:solid;
+}
+#about header {
+	background-image: url(../images/aa1.gif);
+}
+#photos header {
+	background-image: url(../images/aa2.gif);
+}
+#live header {
+	background-image: url(../images/aa3.gif);
+}
+#contact header {
+	background-image: url(../images/aa4.gif);
+}
+#slideshow {
+	width: 150px;
+	height: 150px;
+	position: relative;;
+	overflow: hidden;
+}
+#preview {
+	position: absolute;
+	border-width: 0;
+	outline-width: 0;
 }

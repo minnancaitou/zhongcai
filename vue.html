@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+	<title></title>
+</head>
+<body>
+	<ul id="repeat-object" class="demo">
+		<li v-for="(value, key, index) in object">
+			 {{ index }} .{{ key }} : {{ value }}
+		</li>
+	</ul>
+	<ul id="repeat" class="demo">
+		<li v-for="n in 15">
+			 {{ n }} 
+		</li>
+	</ul>
+	<script>
+		new Vue({
+			el: '#repeat-object',
+			data: {
+				object: {
+					FirstName: 'John',
+					LastName: 'Doe',
+					Age: 30
+				}
+			}
+		})
+		new Vue({
+			el: '#repeat'
+		})
+	</script>
+</body>
+</html>

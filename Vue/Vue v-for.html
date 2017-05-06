@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+	<title></title>
+</head>
+<body>
+	<div id="aa">
+		<ol>
+			<li v-for="ww of wws">
+				{{ ww.text }}
+			</li>
+		</ol>
+	</div>
+	<script>
+		var aa2 = new Vue({
+			el: '#aa',
+			data: {
+				wws: [
+				{ text: '一个' },
+				{ text: '两个'},
+				{ text: '三个'},
+				]
+			}
+		})
+		aa2.wws.push({ text: '增加的四个'})
+	</script>
+</body>
+</html>

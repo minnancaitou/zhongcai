@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+	<title></title>
+</head>
+<body>
+	<ul id="example-3">
+		<li v-for="n in evenNumbers">{{ n }}</li>
+	</ul>
+	<ul id="example-1">
+		<li v-for="item in items">
+			{{ item.message }}
+		</li>
+	</ul>
+	
+	<ul id="example-2">
+		<li v-for="(item, index) in items">
+			{{ parentMessage }} - {{ index }} - {{ item.message }}
+		</li>
+	</ul>
+	<ul id="repeat-object" class="demo">
+		<li v-for="(value, key, index) in object">
+			{{ index }} .{{ key }} : {{ value }}
+		</li>
+	</ul>
+	<ul id="aa" class="demo">
+		<li v-for="n in 15">
+			{{ n }} 
+		</li>
+	</ul>
+	<script>
+		var example1 = new Vue({
+			el: '#example-3',
+			data: {
+				numbers: [ 1, 2, 3, 4, 5 ]
+			},
+			computed: {
+				evenNumbers: function () {
+					return this.numbers.filter(function (number) {
+						return number % 2 === 0
+					})
+				}
+			}
+		})
+		var example1 = new Vue({
+			el: '#example-1',
+			data: {
+				items: [
+				{message: 'Foo' },
+				{message: 'Bar' }
+				]
+			}
+		})
+		example1.items.push({ message: 'Baz' })
+		// example1.items = example1.items.filter(function (item) {
+		// 	return item.message.match(/Foo/)
+		// })
+
+		var example2 = new Vue({
+			el: '#example-2',
+			data: {
+				parentMessage: 'Parent',
+				items: [
+				{ message: 'Foo' },
+				{ message: 'Bar' }
+				]
+			}
+		})
+		new Vue({
+			el: '#repeat-object',
+			data: {
+				object: {
+					FirstName: 'John',
+					LastName: 'Doe',
+					Age: 30
+				}
+			}
+		})
+		new Vue({
+			el: '#aa'
+		})
+	</script>
+</body>
+</html>
