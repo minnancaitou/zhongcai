@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- 事件处理 -->
+	<meta charset="utf-8">
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+	<title></title>
+</head>
+<body>
+	<div id="example-1">
+		<button v-on:click="counter += 1">增加 1</button>
+		<p>这个按钮被点击了 {{ counter }} 次。</p>
+	</div>
+	<!-- 点击事件 -->
+	<div id="example-2">
+		<!-- `greet` 是在下面定义的方法名 -->
+		<button v-on:click="greet">Greet</button>
+	</div>
+	<div id="example-3">
+		<button v-on:click="say('hi')">Say hi</button>
+		<button v-on:click="say('what')">Say what</button>
+	</div>
+	<div id="example-4">
+		<button v-on:click="warn('Form cannot be submitted yet.', $event)">Submit</button>
+	</div>
+	<script>
+		var example1 = new Vue({
+			el: '#example-1',
+			data: {
+				counter: 0
+			}
+		})
+		var example2 = new Vue({
+			el: '#example-2',
+			data: {
+				name: 'Vue.js'
+			},
+  // 在 `methods` 对象中定义方法
+  methods: {
+  	greet: function (event) {
+      // `this` 在方法里指当前 Vue 实例
+      alert('Hello ' + this.name + '!')
+      // `event` 是原生 DOM 事件
+      alert(event.target.tagName)
+  }
+}
+})
+		// example2.greet()
+		var example3 = new Vue({
+			el: '#example-3',
+			methods: {
+				say: function (message) {
+					alert(message)
+				}
+			}
+		})
+		example3 = new Vue({
+			el: '#example-4',
+			methods: {
+				warn: function (message, event) {
+					if (event) event.preventDefault()
+						alert(message)
+				}
+			}
+		})
+	</script>
+</body>
+</html>
