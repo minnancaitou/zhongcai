@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+  <div>
+    <img src="example/images/aa2.gif">
+  </div>
+
+  <script>
+ var aa = document.querySelector('img');
+ aa.onclick = function() {
+  var src = aa.getAttribute('src');
+  if(src === "example/images/aa2.gif"){
+    aa.setAttribute('src', "example/images/aa3.gif");
+  }else{
+    aa.setAttribute('src', "example/images/aa2.gif");
+  }
+ }
+  </script>
+
+  
+</body>
+</html>

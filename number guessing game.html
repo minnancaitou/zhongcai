@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <title>Number guessing game</title>
+
+  <style>
+    html {
+      font-family: sans-serif;
+    }
+    body {
+      width: 50%;
+      max-width: 800px;
+      min-width: 480px;
+      margin: 0 auto;
+    }
+    .lastResult {
+      color: white;
+      padding: 3px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>数字猜测游戏</h1>
+
+  <p>我们已经选择了1到100之间的随机数。看看你能猜到它在10圈以内。我们会告诉你你的猜测是否太高或太低。</p>
+
+  <div class="form">
+    <label for="guessField">输入猜测： </label>
+    <input type="text" id="guessField" class="guessField" onKeyUp="enter(event)">
+    <input type="submit" value="提交猜测" class="guessSubmit">
+  </div>
+
+  <div class="resultParas">
+    <p class="guesses"></p>
+    <p class="lastResult"></p>
+    <p class="lowOrHi"></p>
+  </div>
+
+</body>
+
+<script>
+  var randomNumber = Math.floor(Math.random() * 100) + 1;
+
+  var guesses = document.querySelector('.guesses');
+  var lastResult = document.querySelector('.lastResult');
+  var lowOrHi = document.querySelector('.lowOrHi');
+
+  var guessSubmit = document.querySelector('.guessSubmit');
+  var guessField = document.querySelector('.guessField');
+
+  var guessCount = 1;
+  var resetButton;
+  guessField.focus();
+  function enter(x) {
+    if(x.keyCode == 13){
+      checkGuess();
+      return
+    }
+  }
+  function checkGuess() {
+    var userGuess = Number(guessField.value);
+    if(userGuess== "" || 0){
+      alert('请输入不为0的数字');
+      return guessField.value = '';
+    }
+    if (guessCount === 1) {
+      guesses.textContent = '猜测记录: ';
+    }
+    guesses.textContent += userGuess + ' ';
+    
+    if (userGuess === randomNumber) {
+      lastResult.textContent = '恭喜！猜测正确';
+      lastResult.style.backgroundColor = 'green';
+      lowOrHi.textContent = '';
+      setGameOver();
+    } else if (guessCount === 10) {
+      lastResult.textContent = '!!!游戏结束!!!';
+      setGameOver();
+    } else {
+      lastResult.textContent = '错误!';
+      lastResult.style.backgroundColor = 'red';
+      if(userGuess < randomNumber) {
+        lowOrHi.textContent = '比结果低!';
+      } else if(userGuess > randomNumber) {
+        lowOrHi.textContent = '比结果高!';
+      }
+    }
+    
+    guessCount++;
+    guessField.value = '';
+    guessField.focus();
+  }
+  guessSubmit.addEventListener('click', checkGuess);
+  function setGameOver() {
+    guessField.disabled = true;
+    guessSubmit.disabled = true;
+    resetButton = document.createElement('button');
+    resetButton.textContent = '重新开始';
+    document.body.appendChild(resetButton);
+    resetButton.addEventListener('click', resetGame);
+  }
+  function resetGame() {
+    guessCount = 1;
+
+    var resetParas = document.querySelectorAll('.resultParas p');
+    for (var i = 0 ; i < resetParas.length ; i++) {
+      resetParas[i].textContent = '';
+    }
+
+    resetButton.parentNode.removeChild(resetButton);
+
+    guessField.disabled = false;
+    guessSubmit.disabled = false;
+    guessField.value = '';
+    guessField.focus();
+
+    lastResult.style.backgroundColor = 'white';
+
+    randomNumber = Math.floor(Math.random() * 100) + 1;
+  }
+</script>
+</html>
